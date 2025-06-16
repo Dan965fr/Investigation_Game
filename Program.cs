@@ -12,9 +12,13 @@ namespace Investigation_Game
     {
         static void Main(string[] args)
         {
+
             InvestigationManager manager = new InvestigationManager();
             manager.StartInvestigation();
            
+
+
+
         }
     }
 }
