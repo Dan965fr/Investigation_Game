@@ -10,6 +10,7 @@ namespace Investigation_Game
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
