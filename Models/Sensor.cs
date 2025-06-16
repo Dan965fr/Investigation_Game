@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Investigation_Game
+namespace Investigation_Game.Models
 {
     internal class Sensor
     {
