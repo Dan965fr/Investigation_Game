@@ -49,6 +49,7 @@
     <Compile Include="Models\IranianAgent.cs" />
     <Compile Include="Models\ISensor.cs" />
     <Compile Include="Models\PluseSensor.cs" />
+    <Compile Include="Models\SeniorCommander.cs" />
     <Compile Include="Models\SquadLeader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

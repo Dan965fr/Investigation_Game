@@ -27,12 +27,19 @@ namespace Investigation_Game.Models
         public virtual int ActivateSensors()
         {
             int count = 0;
-            foreach(var attached in _attachedSensors)
+            List<ISensor>countedSensors = new List<ISensor>();
+            foreach(var weakness in _secretWeaknesses)
             {
-                foreach(var weakness in _secretWeaknesses)
+                foreach(var attached in _attachedSensors)
                 {
-                    count++;
-                    break;
+                    if(!countedSensors.Contains(attached) && attached.Activate(weakness))
+                    {
+                       count++;
+                        countedSensors.Add(attached);
+                        break;
+                    }
+                   
+                    
                 }
             }
             return count;
