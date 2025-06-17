@@ -8,13 +8,9 @@ namespace Investigation_Game.Models
 {
     internal class SquadLeader:IranianAgent
     {
-        public SquadLeader() : base(new List<ISensor>
-        {
-            new BasicSensor("thermal"),
-            new BasicSensor("movement"),
-            new BasicSensor("thermal"),
-            new BasicSensor("movement")
-        }, AgentRank.SquadLeader) { }
+        public SquadLeader()
+        : base(SensorFactory.CreatePattern(new[] { "thermal", "movement" }, 2), AgentRank.SquadLeader)
+        { }
 
         public override void CounterAttack(int turnNumber)
         {

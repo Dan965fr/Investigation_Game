@@ -8,15 +8,9 @@ namespace Investigation_Game.Models
 {
     internal class SeniorCommander : IranianAgent
     {
-        public SeniorCommander() : base(new List<ISensor>
-        {
-            new BasicSensor("thermal"),
-            new BasicSensor("movement"),
-            new BasicSensor("thermal"),
-            new BasicSensor("movement"),
-            new BasicSensor("thermal"),
-            new BasicSensor("movement")
-        },AgentRank.SeniorCommander) { }
+        public SeniorCommander()
+       : base(SensorFactory.CreatePattern(new[] { "thermal", "movement" }, 3), AgentRank.SeniorCommander)
+        { }
 
         public override void CounterAttack(int turnNumber)
         {

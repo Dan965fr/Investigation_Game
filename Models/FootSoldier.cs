@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Investigation_Game.Models
 {
-    internal class FootSoldier:IranianAgent
+    internal class FootSoldier : IranianAgent
     {
-        public FootSoldier() : base(new List<ISensor>
-    {
-        new BasicSensor("thermal"),
-        new BasicSensor("thermal")
-    }, AgentRank.FootSoldier)
+        public FootSoldier()
+        : base(SensorFactory.CreatePattern(new[] { "thermal" }, 2), AgentRank.FootSoldier)
         { }
     }
+    
+     
 }
