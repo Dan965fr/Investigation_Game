@@ -11,9 +11,11 @@ namespace Investigation_Game.Menue
       {
             private IranianAgent _agent;
             private int _turnNumber;
-            private readonly List<string> _sensorTypes = new List<string> { "thermal", "movement", "pluse" };
+            private readonly List<string> _sensorTypes = new List<string> { "thermal", "movement", "pluse" , "motion", "magnetic", "signal", "light"};
+            private Player _player = new Player();
 
-            public void StartInvestigation()
+
+        public void StartInvestigation()
             {
                 _agent = new FootSoldier();
                 _turnNumber = 0;
@@ -44,9 +46,10 @@ namespace Investigation_Game.Menue
                     _turnNumber++;
 
                     int correct = _agent.ActivateSensors();
+                    _player.AddScore(correct);
                     Console.WriteLine($" Correct sensors: {correct}/{_agent.SecretCount()}");
-
-                    if (_agent is ICounterAttackable counterAgent)
+                    Console.WriteLine(_player);
+                if (_agent is ICounterAttackable counterAgent)
                     {
                         counterAgent.CounterAttack(_turnNumber);
                     }

@@ -15,6 +15,10 @@ namespace Investigation_Game.Models
                 case "thermal": return new BasicSensor("thermal");
                 case "movement": return new BasicSensor("movement");
                 case "pluse": return new PluseSensor();
+                case "motion": return new MotionSensor();
+                case "magnetic": return new MagneticSensor();
+                case "signal": return new SignalSensor();
+                case "light": return new LightSensor();
                 default: throw new ArgumentException($"Unknown sensor type: {type}");
             }
         }

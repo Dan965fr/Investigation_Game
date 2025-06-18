@@ -49,10 +49,15 @@
     <Compile Include="Models\ICounterAttackable.cs" />
     <Compile Include="Models\IranianAgent.cs" />
     <Compile Include="Models\ISensor.cs" />
+    <Compile Include="Models\LightSensor.cs" />
+    <Compile Include="Models\MagneticSensor .cs" />
+    <Compile Include="Models\MotionSensor.cs" />
     <Compile Include="Models\OrganizationLeader.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Models\PluseSensor.cs" />
     <Compile Include="Models\SeniorCommander.cs" />
     <Compile Include="Models\SensorFactory.cs" />
+    <Compile Include="Models\SignalSensor.cs" />
     <Compile Include="Models\SquadLeader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
