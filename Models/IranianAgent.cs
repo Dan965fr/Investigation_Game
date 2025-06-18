@@ -6,29 +6,40 @@ using System.Threading.Tasks;
 
 namespace Investigation_Game.Models
 {
-    internal class IranianAgent
+    internal  abstract class IranianAgent
     {
-        private List<Sensor> _secretWeaknesses;
-        private List<Sensor> _attachedSensors;
+        protected List<ISensor> _secretWeaknesses;
+        protected List<ISensor> _attachedSensors;
+        protected AgentRank _rank;
 
-        public IranianAgent(List<Sensor> Weakness)
+        protected IranianAgent(List<ISensor> Weakness, AgentRank rank)
         {
             _secretWeaknesses = Weakness;
-            _attachedSensors = new List<Sensor>();
+            _attachedSensors = new List<ISensor>();
+            _rank = rank;
         }
-        public void AttachSensor(Sensor sensor)
+        public AgentRank Rank => _rank;
+        
+        public void AttachSensor(ISensor sensor)
         {
             _attachedSensors.Add(sensor);
         }
-        public int ActivateSensors()
+        public virtual int ActivateSensors()
         {
             int count = 0;
-            foreach(var attached in _attachedSensors)
+            List<ISensor>countedSensors = new List<ISensor>();
+            foreach(var weakness in _secretWeaknesses)
             {
-                foreach(var weakness in _secretWeaknesses)
+                foreach(var attached in _attachedSensors)
                 {
-                    count++;
-                    break;
+                    if(!countedSensors.Contains(attached) && attached.Activate(weakness))
+                    {
+                       count++;
+                        countedSensors.Add(attached);
+                        break;
+                    }
+                   
+                    
                 }
             }
             return count;
@@ -37,9 +48,15 @@ namespace Investigation_Game.Models
         {
             return ActivateSensors() == _secretWeaknesses.Count;
         }
-        public int SecretCount()
+        public  int SecretCount()
         {
             return _secretWeaknesses.Count;
+        }
+        
+
+        public List<ISensor> GetAttachSensors()
+        {
+            return _attachedSensors;
         }
 
 

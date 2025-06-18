@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Investigation_Game.Models
 {
-    internal class Sensor
+    internal class BasicSensor:ISensor
     {
         public string Name {  get; set; }
-        public Sensor(string name)
+        public BasicSensor(string name)
         {
             Name = name;
         }
-        public bool Activate(Sensor weakness)
+        public bool Activate(ISensor weakness)
         {
             return Name == weakness.Name;
         }

@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Investigation_Game.Models
+{
+    internal class SquadLeader:IranianAgent,ICounterAttackable
+    {
+        public SquadLeader()
+        : base(SensorFactory.CreatePattern(new[] { "thermal", "movement" }, 2), AgentRank.SquadLeader)
+        { }
+
+        public  void CounterAttack(int turnNumber)
+        {
+            if(turnNumber % 3 == 0 && GetAttachSensors().Any())
+            {
+                var rnd = new Random();
+                int index = rnd.Next(GetAttachSensors().Count);
+                Console.WriteLine(" Counterattack: A sensor was removed!");
+                GetAttachSensors().RemoveAt(index);
+            }
+        }
+
+    }
+}
+ 
