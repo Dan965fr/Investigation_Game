@@ -46,6 +46,7 @@
     <Compile Include="Menue\InvestigationManager.cs" />
     <Compile Include="Models\AgentRank.cs" />
     <Compile Include="Models\FootSoldier.cs" />
+    <Compile Include="Models\ICounterAttackable.cs" />
     <Compile Include="Models\IranianAgent.cs" />
     <Compile Include="Models\ISensor.cs" />
     <Compile Include="Models\OrganizationLeader.cs" />

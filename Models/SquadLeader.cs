@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Investigation_Game.Models
 {
-    internal class SquadLeader:IranianAgent
+    internal class SquadLeader:IranianAgent,ICounterAttackable
     {
         public SquadLeader()
         : base(SensorFactory.CreatePattern(new[] { "thermal", "movement" }, 2), AgentRank.SquadLeader)
         { }
 
-        public override void CounterAttack(int turnNumber)
+        public  void CounterAttack(int turnNumber)
         {
             if(turnNumber % 3 == 0 && GetAttachSensors().Any())
             {

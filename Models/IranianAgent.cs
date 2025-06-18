@@ -52,7 +52,7 @@ namespace Investigation_Game.Models
         {
             return _secretWeaknesses.Count;
         }
-        public virtual void CounterAttack(int turnNumber) { }
+        
 
         public List<ISensor> GetAttachSensors()
         {

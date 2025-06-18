@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Investigation_Game.Models
 {
-    internal class OrganizationLeader : IranianAgent
+    internal class OrganizationLeader : IranianAgent,ICounterAttackable
     {
         public OrganizationLeader() :  base(
         SensorFactory.CreatePattern(new[] { "thermal", "movement" }, 4),
@@ -14,7 +14,7 @@ namespace Investigation_Game.Models
         { }
 
 
-        public override void CounterAttack(int turnNumber)
+        public   void CounterAttack(int turnNumber)
         {
             if(turnNumber % 3 == 0 && GetAttachSensors().Any())
             {

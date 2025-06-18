@@ -8,6 +8,17 @@ namespace Investigation_Game.Models
 {
     internal static class SensorFactory
     {
+        public static ISensor CreateSensor(string type)
+        {
+            switch (type)
+            {
+                case "thermal": return new BasicSensor("thermal");
+                case "movement": return new BasicSensor("movement");
+                case "pluse": return new PluseSensor();
+                default: throw new ArgumentException($"Unknown sensor type: {type}");
+            }
+        }
+
         public static List<ISensor> CreatePattern(string[] pattern, int repeats)
         {
             var sensors = new List<ISensor>();
@@ -15,7 +26,7 @@ namespace Investigation_Game.Models
             {
                 foreach (var type in pattern)
                 {
-                    sensors.Add(new BasicSensor(type));
+                    sensors.Add(CreateSensor(type));
                 }
             }
             return sensors;
